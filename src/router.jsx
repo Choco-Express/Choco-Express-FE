@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import React from "react";
 import App from "./App";
+import { OtherboxPage } from "./pages/otherboxPage/otherboxPage";
 
 const router = createBrowserRouter([
   {
@@ -8,6 +9,8 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
+        path: "/box",
+        element: <OtherboxPage />,
         // path: "/error",
         // element: <NotFound />,
       },
