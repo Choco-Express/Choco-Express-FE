@@ -10,17 +10,21 @@ const Frame = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
 `;
 
 const Wrapper = styled.div`
   margin: 0 auto;
-  width: 100%;
+  height: 100vh;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 430px;
+  max-width: 420px;
+  position: absolute;
+  z-index: 0;
   background-color: #fef7e2;
+  overflow: hidden;
 `;
 
 const Content = styled.div`
