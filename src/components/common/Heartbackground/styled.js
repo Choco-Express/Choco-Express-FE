@@ -10,12 +10,9 @@ export const ImgContainer = styled.div`
 
 export const HEART = styled.img`
   display: flex;
-
-  z-index: 1;
 `;
 export const Logo = styled.img`
   display: flex;
-  z-index: 2;
   position: absolute;
   top: 20px;
 `;

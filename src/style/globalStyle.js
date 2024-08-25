@@ -1,13 +1,16 @@
 import { createGlobalStyle } from "styled-components";
-
+import PretendardRegular from "../assets/fonts/alternative/Pretendard-Regular.ttf";
 export const GlobalStyle = createGlobalStyle`
 
   :root {
     --vh: 100%;
    }
-
- 
-  
+   @font-face {
+    font-family: 'Pretendard-Regular';
+    src: url(${PretendardRegular}) format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
    
 
   html, body, div, span, applet, object, iframe,

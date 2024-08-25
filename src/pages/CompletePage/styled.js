@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import CompleteLogo from "../../assets/images/CompleteLogo.svg";
 
 export const Container = styled.div`
   display: flex;
@@ -29,16 +30,17 @@ export const Wrapper = styled.div`
     font-family: "Pretendard-Regular";
   }
 `;
+
 export const BoxContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 280px;
-  height: 220px;
+  width: 318px;
+  height: 200px;
   border-radius: 33px;
-  background-color: rgba(255, 255, 255, 0.74);
-  box-shadow: 0px 4px 4px 0px rgba(83, 42, 19, 0.38);
+
   margin-top: 10px;
+  background: url(${CompleteLogo}) 50% / cover no-repeat;
 `;
 
 export const ButtonContainer = styled.div`
@@ -51,7 +53,7 @@ export const ButtonContainer = styled.div`
 
 export const Button = styled.div`
   display: flex;
-  width: 280px;
+  padding: 5px 50px;
   height: 50px;
   flex-shrink: 0;
   justify-content: center;
