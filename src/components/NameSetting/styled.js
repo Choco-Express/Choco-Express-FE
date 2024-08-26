@@ -14,7 +14,7 @@ export const ComentContainer = styled.div`
   .coment {
     color: #fef7e2;
     font-family: "Pretendard-Regular";
-    font-size: 15px;
+    font-size: 17px;
     font-style: normal;
     font-weight: 600;
     display: flex;

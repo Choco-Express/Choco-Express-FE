@@ -1,9 +1,11 @@
 import * as S from "./styled";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { NameSetting } from "../../components/NameSetting/NameSetting";
 import HeartBackG from "../../components/common/Heartbackground/heartBackG";
 import ChocoSelector from "../../components/ChocoSelector/ChocoSelector";
-export const LetterPage = () => {
+export const LetterOptionPage = () => {
+  const navigate = useNavigate();
   const [selectedChoco, setSelectedChoco] = useState("");
   const [isSelectedChoco, setIsSelectedChoco] = useState(false);
 
@@ -20,6 +22,7 @@ export const LetterPage = () => {
   };
   const handleSubmit = (inputValue) => {
     //여기서 api연결 작업 시작!
+    navigate("Post");
   };
 
   const handleBack = () => {
