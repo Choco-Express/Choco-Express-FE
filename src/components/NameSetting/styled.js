@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  gap: 25px;
+  gap: 20px;
 `;
 export const ComentContainer = styled.div`
   display: flex;
@@ -14,7 +14,7 @@ export const ComentContainer = styled.div`
   .coment {
     color: #fef7e2;
     font-family: "Pretendard-Regular";
-    font-size: 17px;
+    font-size: 15px;
     font-style: normal;
     font-weight: 600;
     display: flex;
@@ -22,27 +22,25 @@ export const ComentContainer = styled.div`
     justify-content: center;
   }
 `;
-export const NameForm = styled.div`
+
+export const FormContainer = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  align-items: center;
+  position: relative;
+`;
+export const NameForm = styled.input`
+  display: flex;
   width: 310px;
   height: 67px;
-  align-items: center;
+  padding: 0 3.5rem;
   border-radius: 33px;
   background: rgba(255, 255, 255, 0.74);
   box-shadow: 0px 4px 4px 0px rgba(83, 42, 19, 0.38);
-
-  .input {
-    width: 80%;
-    padding: 1.5rem;
-  }
 `;
 export const Enter = styled.div`
   position: absolute;
   z-index: 8;
   left: 20px;
-  width: 40%;
 `;
 
 export const buttonContainer = styled.div`
@@ -50,7 +48,7 @@ export const buttonContainer = styled.div`
   flex-direction: row;
   gap: 10px;
   position: absolute;
-  bottom: 30px;
+  bottom: 10px;
 `;
 export const Btn = styled.div`
   display: flex;

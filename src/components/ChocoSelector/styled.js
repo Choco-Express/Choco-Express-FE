@@ -42,9 +42,10 @@ export const BoxItem = styled.div`
   align-self: center;
   width: 98px;
   height: 91px;
-
+  box-shadow: ${({ selected }) =>
+    selected ? "0px 3px 10px 0px rgba(255, 255, 255, 0.7)" : "transparent"};
   border-bottom: 1px solid
-    ${({ selected }) => (selected ? "#FEF7E2" : "transparent")};
+    ${({ selected }) => (selected ? "rgba(255, 255, 255, 0.5)" : "transparent")};
 
   cursor: pointer;
 
@@ -63,21 +64,4 @@ export const buttonContainer = styled.div`
   display: flex;
   flex-direction: row;
   gap: 10px;
-`;
-export const Btn = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 131px;
-  height: 50px;
-  flex-shrink: 0;
-  border-radius: 30px;
-  border: 2px solid #fef7e2;
-  background: #532a13;
-  color: #fef7e2;
-  font-family: "Pretendard-Regular";
-  font-size: 17px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 120%; /* 20.4px */
 `;
