@@ -1,21 +1,20 @@
 import * as S from "./styled";
 import React, { useState } from "react";
 import { NameSetting } from "../../components/NameSetting/NameSetting";
-import BoxSelector from "../../components/BoxSelector/BoxSelector";
 import HeartBackG from "../../components/common/Heartbackground/heartBackG";
-
+import ChocoSelector from "../../components/ChocoSelector/ChocoSelector";
 export const LetterPage = () => {
-  const [selectedBox, setSelectedBox] = useState("");
-  const [isSelectedBox, setIsSelectedBox] = useState(false);
+  const [selectedChoco, setSelectedChoco] = useState("");
+  const [isSelectedChoco, setIsSelectedChoco] = useState(false);
 
-  const handleSelectBox = (boxId) => {
-    setSelectedBox(boxId);
-    console.log(`Selected box ID: ${boxId}`);
+  const handleSelectChoco = (id) => {
+    setSelectedChoco(id);
+    console.log(`Selected choco ID: ${id}`);
   };
 
   const handleNext = () => {
-    if (selectedBox) {
-      setIsSelectedBox(true);
+    if (selectedChoco) {
+      setIsSelectedChoco(true);
       console.log("다음페이지로");
     }
   };
@@ -24,15 +23,14 @@ export const LetterPage = () => {
   };
 
   const handleBack = () => {
-    setIsSelectedBox(false); // BoxSelector로 돌아가기
-    setSelectedBox(""); // 선택된 박스를 초기화
+    setIsSelectedChoco(false);
   };
 
   return (
     <S.Container>
       <HeartBackG />
       <S.Wrapper>
-        {isSelectedBox ? (
+        {isSelectedChoco ? (
           <NameSetting
             coment_1={"상대방이 확인할"}
             coment_2={"이름을 정해주세요"}
@@ -40,10 +38,10 @@ export const LetterPage = () => {
             onBack={handleBack}
           />
         ) : (
-          <BoxSelector
+          <ChocoSelector
             coment="보내고 싶은 초콜릿을 선택해주세요"
-            selectedBox={selectedBox}
-            onSelectBox={handleSelectBox}
+            selectedChoco={selectedChoco}
+            onSelectChoco={handleSelectChoco}
             onNext={handleNext}
           />
         )}
