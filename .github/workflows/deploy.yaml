@@ -26,8 +26,8 @@ jobs:
       - name: Build Production
         run: CI=false npm run build --if-present
 
-      - name: List Build Directory
-        run: ls build  # 빌드 결과가 있는지 확인하는 단계
+      - name: List dist Directory
+        run: ls dist  # 빌드 결과가 있는지 확인하는 단계
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -40,7 +40,7 @@ jobs:
         env:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        run: aws s3 sync --region ap-northeast-2 build ${{ secrets.S3_BUCKET_NAME }} --delete
+        run: aws s3 sync --region ap-northeast-2 dist ${{ secrets.S3_BUCKET_NAME }} --delete
 
       - name: Invalidate CloudFront Cache
         run: aws cloudfront create-invalidation --distribution-id ${{ secrets.DEV_AWS_DISTRIBUTION_ID }} --paths "/*"
