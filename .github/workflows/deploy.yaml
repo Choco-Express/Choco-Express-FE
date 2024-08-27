@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: ["latest"]
     steps:
       - name: Checkout Source Code
         uses: actions/checkout@v3
@@ -26,6 +26,9 @@ jobs:
       - name: Build Production
         run: CI=false npm run build --if-present
 
+      - name: List dist Directory
+        run: ls dist # 빌드 결과가 있는지 확인하는 단계
+
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -37,7 +40,7 @@ jobs:
         env:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        run: aws s3 sync --region ap-northeast-2 build s3://ilovecat-bucket --delete
+        run: aws s3 sync --region ap-northeast-2 dist ${{ secrets.S3_BUCKET_NAME }} --delete
 
       - name: Invalidate CloudFront Cache
         run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }} --paths "/*"
