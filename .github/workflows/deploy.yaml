@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: ["latest"]
     steps:
       - name: Checkout Source Code
         uses: actions/checkout@v3
@@ -27,7 +27,7 @@ jobs:
         run: CI=false npm run build --if-present
 
       - name: List dist Directory
-        run: ls dist  # 빌드 결과가 있는지 확인하는 단계
+        run: ls dist # 빌드 결과가 있는지 확인하는 단계
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
