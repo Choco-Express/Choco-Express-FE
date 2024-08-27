@@ -42,6 +42,7 @@ const Layout = () => {
       <Wrapper>
         <Content>
           <Outlet />
+          test
         </Content>
       </Wrapper>
     </Frame>
