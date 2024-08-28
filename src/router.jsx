@@ -5,6 +5,9 @@ import { OtherboxPage } from "./pages/otherboxPage/otherboxPage";
 import { CompletePage } from "./pages/CompletePage/CompletePage";
 import { NotFound } from "./pages/NotFound/NotFound";
 import { LetterPage } from "./pages/LetterPage/LetterPage";
+import LoginPage from "./pages/LoginPage/LoginPage";
+import MyboxPage from "./pages/MyboxPage/MyboxPage";
+import MyboxSelectPage from "./pages/MyboxSelectPage/MyboxSelectPage";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -25,6 +28,18 @@ const router = createBrowserRouter([
       {
         path: "/error",
         element: <NotFound />,
+      },
+      {
+        path: "/login",
+        element: <LoginPage />,
+      },
+      {
+        path: "/mybox",
+        element: <MyboxPage />,
+      },
+      {
+        path: "/mybox/select",
+        element: <MyboxSelectPage />,
       },
     ],
   },
