@@ -16,3 +16,9 @@ export const Logo = styled.img`
   position: absolute;
   top: 20px;
 `;
+
+export const LoginLogo = styled.img`
+  display: flex;
+  position: absolute;
+  top: 120px;
+`;
