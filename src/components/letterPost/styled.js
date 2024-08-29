@@ -46,7 +46,7 @@ export const textContainer = styled.div`
   width: 90%;
   z-index: 2;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
 
   justify-content: center;
   align-items: center;
@@ -57,10 +57,17 @@ export const textContainer = styled.div`
     padding: 10px;
     resize: none; // 크기 조정 막기
     z-index: 3;
-    font-size: 16px;
+
     background-color: transparent;
     border: none;
     outline: none;
+
+    font-family: "LeeSeoyun";
+    color: #532a13;
+    text-align: justify;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
   }
   .nickName {
     margin-top: 10px;
@@ -68,6 +75,11 @@ export const textContainer = styled.div`
     color: black;
     font-weight: bold;
     align-self: flex-end;
+    margin-right: 1rem;
+    font-family: "LeeSeoyun";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
   }
 `;
 export const buttonContainer = styled.div`

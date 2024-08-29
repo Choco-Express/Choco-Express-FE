@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import PretendardRegular from "../assets/fonts/alternative/Pretendard-Regular.ttf";
+import LeeSeoyun from "../assets/fonts/LeeSeoyun.ttf";
 export const GlobalStyle = createGlobalStyle`
 
   :root {
@@ -7,8 +8,15 @@ export const GlobalStyle = createGlobalStyle`
    }
    @font-face {
     font-family: 'Pretendard-Regular';
-    src: url(${PretendardRegular}) format('woff');
+    src: url(${PretendardRegular}) format('truetype');
     font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LeeSeoyun';
+    src: url(${LeeSeoyun}) format('truetype');
+    font-weight: normal;
     font-style: normal;
 }
    
