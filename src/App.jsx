@@ -42,6 +42,7 @@ const Layout = () => {
       <Wrapper>
         <Content>
           <Outlet />
+          최종 test
         </Content>
       </Wrapper>
     </Frame>
