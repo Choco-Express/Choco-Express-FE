@@ -17,5 +17,5 @@ export const Wrapper = styled.div`
   gap: 20px;
   height: 437px;
   align-items: center;
-  margin-top: 5rem;
+  top: 27%;
 `;
