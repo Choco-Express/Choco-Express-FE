@@ -4,7 +4,9 @@ import { NameSetting } from "../../components/NameSetting/NameSetting";
 import HeartBackG from "../../components/common/Heartbackground/heartBackG";
 import ChocoSelector from "../../components/ChocoSelector/ChocoSelector";
 import { LetterPost } from "../../components/letterPost/LetterPost";
+import { useNavigate } from "react-router-dom";
 export const LetterPostPage = () => {
+  const navigate = useNavigate();
   const [selectedChoco, setSelectedChoco] = useState("");
   const [isSelectedChoco, setIsSelectedChoco] = useState(false);
   const [nickName, setNickName] = useState("");
@@ -35,6 +37,8 @@ export const LetterPostPage = () => {
 
   const handleContentSubmit = (content) => {
     console.log(content);
+    //서버에 post 후 완료페이지로 이동
+    navigate("/box/complete");
   };
   return (
     <S.Container>
@@ -44,7 +48,7 @@ export const LetterPostPage = () => {
           <LetterPost
             selectedChoco={selectedChoco}
             nickName={nickName}
-            onSubmit={handleContentSubmit}
+            onsubmit={handleContentSubmit}
             onBack={handleContentBack}
           />
         ) : isSelectedChoco ? (
