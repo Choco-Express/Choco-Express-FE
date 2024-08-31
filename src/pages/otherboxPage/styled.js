@@ -39,6 +39,18 @@ export const BoxContainer = styled.div`
   background-color: rgba(255, 255, 255, 0.74);
   box-shadow: 0px 4px 4px 0px rgba(83, 42, 19, 0.38);
   margin-top: 10px;
+  position: relative;
+  z-index: 1;
+
+  .boxImg {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 143px;
+    height: 148px;
+  }
 `;
 
 export const ButtonContainer = styled.div`
@@ -64,4 +76,5 @@ export const Button = styled.div`
   font-style: normal;
   font-weight: 600;
   color: #fef7e2;
+  cursor: pointer;
 `;

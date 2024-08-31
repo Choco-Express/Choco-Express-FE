@@ -3,39 +3,62 @@ import React, { useState } from "react";
 import { NameSetting } from "../../components/NameSetting/NameSetting";
 import HeartBackG from "../../components/common/Heartbackground/heartBackG";
 import ChocoSelector from "../../components/ChocoSelector/ChocoSelector";
-export const LetterPage = () => {
+import { LetterPost } from "../../components/letterPost/LetterPost";
+import { useNavigate } from "react-router-dom";
+export const LetterPostPage = () => {
+  const navigate = useNavigate();
   const [selectedChoco, setSelectedChoco] = useState("");
   const [isSelectedChoco, setIsSelectedChoco] = useState(false);
+  const [nickName, setNickName] = useState("");
+  const [isNameSetting, setIsNameSetting] = useState(false);
 
   const handleSelectChoco = (id) => {
     setSelectedChoco(id);
-    console.log(`Selected choco ID: ${id}`);
+    console.log(`choco ID: ${id}`);
   };
 
   const handleNext = () => {
     if (selectedChoco) {
       setIsSelectedChoco(true);
-      console.log("다음페이지로");
     }
   };
   const handleSubmit = (inputValue) => {
-    //여기서 api연결 작업 시작!
+    setNickName(inputValue);
+    console.log("닉네임:", inputValue);
+    setIsNameSetting(true);
   };
 
-  const handleBack = () => {
+  const handleNameBack = () => {
     setIsSelectedChoco(false);
   };
+  const handleContentBack = () => {
+    setIsNameSetting(false);
+  };
 
+  const handleContentSubmit = (content) => {
+    console.log(content);
+    //서버에 post 후 완료페이지로 이동
+    navigate("/box/complete");
+  };
   return (
     <S.Container>
       <HeartBackG />
       <S.Wrapper>
-        {isSelectedChoco ? (
+        {isNameSetting ? (
+          <LetterPost
+            selectedChoco={selectedChoco}
+            nickName={nickName}
+            onsubmit={handleContentSubmit}
+            onBack={handleContentBack}
+          />
+        ) : isSelectedChoco ? (
           <NameSetting
             coment_1={"상대방이 확인할"}
             coment_2={"이름을 정해주세요"}
+            inputValue={nickName} // 통합된 상태 전달
+            onInputChange={(value) => setNickName(value)}
             onSubmit={handleSubmit}
-            onBack={handleBack}
+            onBack={handleNameBack}
           />
         ) : (
           <ChocoSelector
