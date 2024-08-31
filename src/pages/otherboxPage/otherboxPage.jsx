@@ -1,6 +1,7 @@
 import * as S from "./styled";
 import HeartBackG from "../../components/common/Heartbackground/heartBackG";
 import { useNavigate } from "react-router-dom";
+import { BOXES } from "../../constants/Boxes/data";
 export const OtherboxPage = () => {
   const navigate = useNavigate();
   const MoveOnLetterP = () => {
@@ -12,7 +13,9 @@ export const OtherboxPage = () => {
       <S.Wrapper>
         <div className="Box">
           <div>[하채민] 의 초콜릿 상자</div>
-          <S.BoxContainer></S.BoxContainer>
+          <S.BoxContainer>
+            <img src={BOXES[1].src} className="boxImg" />
+          </S.BoxContainer>
         </div>
         <S.ButtonContainer>
           <S.Button
