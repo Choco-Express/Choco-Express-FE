@@ -33,7 +33,7 @@ const BoxSelector = ({ coment, selectedChoco, onSelectChoco, onNext }) => {
               selected={selectedChoco === choco.id}
               onClick={() => handleChocoClick(choco.id)}
             >
-              <img src={choco.src} alt={choco.id} />
+              <img src={choco.src} alt={choco.id} className="chocoImg" />
             </S.BoxItem>
           ))}
         </S.BoxGrid>
