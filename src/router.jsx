@@ -5,6 +5,9 @@ import { OtherboxPage } from "./pages/otherboxPage/otherboxPage";
 import { CompletePage } from "./pages/CompletePage/CompletePage";
 import { NotFound } from "./pages/NotFound/NotFound";
 import { LetterPage } from "./pages/LetterPage/LetterPage";
+import DetailLetter from "./pages/DetailLetter/DetailLetter";
+import ChocoList from "./pages/ChocoList/ChocoList";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -26,6 +29,8 @@ const router = createBrowserRouter([
         path: "/error",
         element: <NotFound />,
       },
+      { path: "/detailletter", element: <DetailLetter /> },
+      { path: "/chocolist", element: <ChocoList /> },
     ],
   },
 ]);
