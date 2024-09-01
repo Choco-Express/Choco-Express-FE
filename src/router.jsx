@@ -48,7 +48,7 @@ const router = createBrowserRouter([
         path: "/mybox/select",
         element: <MyboxSelectPage />,
       },
-      { path: "/detailletter", element: <DetailLetter /> },
+      { path: "/detailletter/:id", element: <DetailLetter /> },
       { path: "/chocolist", element: <ChocoList /> },
     ],
   },
