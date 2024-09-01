@@ -1,4 +1,4 @@
-import CHOCO_1 from "../../assets/images/Chocolates/Chocolate_1.svg";
+import CHOCO_1 from "../../assets/images/Chocolates/chocolate_1.png";
 import CHOCO_2 from "../../assets/images/Chocolates/Chocolate_2.svg";
 import CHOCO_3 from "../../assets/images/Chocolates/Chocolate_3.svg";
 import CHOCO_4 from "../../assets/images/Chocolates/Chocolate_4.svg";

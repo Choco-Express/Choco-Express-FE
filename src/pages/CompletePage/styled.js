@@ -15,10 +15,10 @@ export const Wrapper = styled.div`
   position: absolute;
   z-index: 1;
   color: white;
-  gap: 20px;
+  gap: 25px;
   align-items: center;
   justify-content: center;
-  margin-top: 5rem;
+  margin-top: 3rem;
 
   .Box {
     display: flex;

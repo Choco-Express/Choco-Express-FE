@@ -1,4 +1,14 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    text-decoration: none;
+  }
+`;
 
 export const Container = styled.div`
   display: flex;
@@ -17,5 +27,5 @@ export const Wrapper = styled.div`
   gap: 20px;
   height: 437px;
   align-items: center;
-  top: 27%;
+  margin-top: 5rem;
 `;

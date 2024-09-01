@@ -14,7 +14,7 @@ export const ComentContainer = styled.div`
   .coment {
     color: #fef7e2;
     font-family: "Pretendard-Regular";
-    font-size: 15px;
+    font-size: 17px;
     font-style: normal;
     font-weight: 600;
     display: flex;
@@ -36,6 +36,7 @@ export const NameForm = styled.input`
   border-radius: 33px;
   background: rgba(255, 255, 255, 0.74);
   box-shadow: 0px 4px 4px 0px rgba(83, 42, 19, 0.38);
+  font-family: "LeeSeoyun";
 `;
 export const Enter = styled.div`
   position: absolute;

@@ -16,7 +16,7 @@ const Frame = styled.div`
 
 const Wrapper = styled.div`
   margin: 0 auto;
-  height: 100vh;
+  min-height: 100vh;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -25,7 +25,6 @@ const Wrapper = styled.div`
   position: absolute;
   z-index: 0;
   background-color: #fef7e2;
-  overflow: hidden;
 `;
 
 const Content = styled.div`
@@ -43,6 +42,7 @@ const Layout = () => {
       <Wrapper>
         <Content>
           <Outlet />
+          최종 test
         </Content>
       </Wrapper>
     </Frame>
