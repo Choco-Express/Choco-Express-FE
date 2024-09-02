@@ -33,7 +33,7 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100vh;
+  height: 667px;
   background-image: ${({ $selectedBoxId }) =>
     getBackgroundImage($selectedBoxId)};
   background-size: cover;

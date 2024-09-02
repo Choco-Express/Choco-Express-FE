@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom"; // useParams 훅도 import
+import { useNavigate, useParams } from "react-router-dom";
 import * as S from "./styled";
 import HeartBackG from "../../components/common/Heartbackground/heartBackG";
 import { LETTERS } from "../../constants/letters/data";
@@ -9,7 +9,6 @@ const DetailLetter = () => {
   const navigate = useNavigate();
   const { id } = useParams();
 
-  // 컴포넌트 내부에서 초콜릿 ID와 편지지 ID를 매핑하는 객체 정의
   const chocoToLetterMapping = {
     1: 1,
     2: 2,
@@ -38,6 +37,14 @@ const DetailLetter = () => {
                 src={selectedLetter.src}
                 alt={`Letter ${selectedLetter.id}`}
               />
+
+              <S.textContainer>
+                <p className="contents">
+                  안녕하세용가리 fjdkfjdkjfdlfjdlfjdljfdljfdf
+                  dfdjkfjdlfjdlfjdlfjd 오태준 바보임 ㅋ
+                </p>
+                <div className="nickName">from.ㅋㅋ</div>
+              </S.textContainer>
               <S.CloseButton src={CloseButton} onClick={handleDeleteClick} />
               <S.DeleteButton src={DeleteButton} />
             </>

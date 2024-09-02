@@ -11,7 +11,6 @@ const ChocoList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedBoxId, setSelectedBoxId] = useState(1); // 초기값 1로 설정
 
-  // selectedBoxId에 따라 ITEMS_PER_PAGE 값 변경
   const ITEMS_PER_PAGE = selectedBoxId === 4 ? 6 : 9; // box4일 때는 6, 나머지는 9로 설정
 
   const totalPages = Math.ceil(CHOCOLATES.length / ITEMS_PER_PAGE);
@@ -28,10 +27,9 @@ const ChocoList = () => {
     }
   };
 
-  // 상자 ID 변경 핸들러 추가
   const handleBoxChange = (id) => {
     setSelectedBoxId(id);
-    setCurrentPage(1); // 새로운 상자가 선택될 때 페이지를 1로 초기화
+    setCurrentPage(1);
   };
 
   return (

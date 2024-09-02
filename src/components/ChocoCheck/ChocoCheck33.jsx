@@ -3,7 +3,7 @@ import { CHOCOLATES } from "../../constants/Chocolates/data";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const ChocoCheck22 = ({ currentPage, itemsPerPage }) => {
+const ChocoCheck33 = ({ currentPage, itemsPerPage }) => {
   const [selectedChocoId, setSelectedChocoId] = useState(null);
   const navigate = useNavigate();
 
@@ -31,4 +31,4 @@ const ChocoCheck22 = ({ currentPage, itemsPerPage }) => {
   );
 };
 
-export default ChocoCheck22;
+export default ChocoCheck33;
