@@ -36,6 +36,8 @@ export const Btn_Kakaologin = styled.div`
   align-items: center;
   gap: 0.5rem; // 8px
 
+  cursor: pointer;
+
   border-radius: 0.375rem; // 6px
   background: #FEE500;
 
@@ -54,6 +56,8 @@ export const Btn_Googlelogin = styled.div`
   justify-content: center;
   align-items: center;
   gap: 0.5rem; // 8px
+
+  cursor: pointer;
 
   border-radius: 0.375rem; // 6px
   background: #FFF;
@@ -74,6 +78,8 @@ export const Btn_Naverlogin = styled.div`
   justify-content: center;
   align-items: center;
   gap: 0.625rem; // 10px
+
+  cursor: pointer;
 
   border-radius: 0.375rem; // 6px
   background: #03C75A;

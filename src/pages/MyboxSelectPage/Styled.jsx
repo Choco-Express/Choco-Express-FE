@@ -29,3 +29,8 @@ export const Wrapper = styled.div`
   align-items: center;
   margin-top: 5rem;
 `;
+
+export const CenterText = styled.div`
+  display: flex;
+  text-align: center;
+`;
