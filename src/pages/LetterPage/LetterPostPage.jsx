@@ -5,8 +5,12 @@ import HeartBackG from "../../components/common/Heartbackground/heartBackG";
 import ChocoSelector from "../../components/ChocoSelector/ChocoSelector";
 import { LetterPost } from "../../components/letterPost/LetterPost";
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { postChocolate } from "../../apis/postChoco";
+
 export const LetterPostPage = () => {
   const navigate = useNavigate();
+  const { boxId } = useParams();
   const [selectedChoco, setSelectedChoco] = useState("");
   const [isSelectedChoco, setIsSelectedChoco] = useState(false);
   const [nickName, setNickName] = useState("");
@@ -35,11 +39,24 @@ export const LetterPostPage = () => {
     setIsNameSetting(false);
   };
 
-  const handleContentSubmit = (content) => {
+  const handleContentSubmit = async (content) => {
     console.log(content);
     //서버에 post 후 완료페이지로 이동
-    navigate("/box/complete");
+
+    try {
+      const res = await postChocolate(boxId, nickName, content, selectedChoco);
+
+      if (res.status === 201) {
+        console.log("초콜릿전달 성공");
+        navigate("/box/complete");
+      } else {
+        console.log("초콜릿 전송 실패");
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
+
   return (
     <S.Container>
       <HeartBackG />

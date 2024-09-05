@@ -18,7 +18,7 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: "/box",
+        path: "/box/:boxId",
         element: <OtherboxPage />,
       },
       {
@@ -26,7 +26,7 @@ const router = createBrowserRouter([
         element: <CompletePage />,
       },
       {
-        path: "/box/letter",
+        path: "box/:boxId/choco",
         element: <LetterPostPage />,
       },
 
