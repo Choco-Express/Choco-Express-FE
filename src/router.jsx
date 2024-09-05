@@ -9,13 +9,16 @@ import { LetterPostPage } from "./pages/LetterPage/LetterPostPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import MyboxPage from "./pages/MyboxPage/MyboxPage";
 import MyboxSelectPage from "./pages/MyboxSelectPage/MyboxSelectPage";
+import DetailLetter from "./pages/DetailLetter/DetailLetter";
+import ChocoList from "./pages/ChocoList/ChocoList";
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     children: [
       {
-        path: "/box",
+        path: "/box/:boxId",
         element: <OtherboxPage />,
       },
       {
@@ -23,7 +26,7 @@ const router = createBrowserRouter([
         element: <CompletePage />,
       },
       {
-        path: "/box/letter",
+        path: "box/:boxId/choco",
         element: <LetterPostPage />,
       },
 
@@ -45,6 +48,8 @@ const router = createBrowserRouter([
         path: "/mybox/select",
         element: <MyboxSelectPage />,
       },
+      { path: "/detailletter/:id", element: <DetailLetter /> },
+      { path: "/chocolist", element: <ChocoList /> },
     ],
   },
 ]);

@@ -16,4 +16,8 @@ export const Btn = styled.div`
   font-weight: 600;
   line-height: 120%; /* 20.4px */
   cursor: pointer;
+  &:hover,
+  :active {
+    background: #f34381;
+  }
 `;

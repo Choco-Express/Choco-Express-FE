@@ -40,23 +40,19 @@ export const BoxItem = styled.div`
   display: flex;
   justify-self: center;
   align-self: center;
-  width: 98px;
-  height: 91px;
-  box-shadow: ${({ selected }) =>
-    selected ? "0px 3px 10px 0px rgba(255, 255, 255, 0.7)" : "transparent"};
-  border-bottom: 1px solid
-    ${({ selected }) => (selected ? "rgba(255, 255, 255, 0.5)" : "transparent")};
+  width: 100px;
+  height: 113.136px;
 
-  cursor: pointer;
-
-  &:hover {
-    border-bottom: 1px solid
-      ${({ selected }) => (selected ? "#FEF7E2" : "#transparent")};
-  }
   img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+
+    filter: ${({ selected }) =>
+      selected ? "drop-shadow(0px 0px 15px rgba(255, 20, 147, 0.8))" : "none"};
+
+
+  
   }
 `;
 

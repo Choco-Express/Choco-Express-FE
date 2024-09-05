@@ -2,6 +2,7 @@ import React from "react";
 import { styled } from "styled-components";
 import { GlobalStyle } from "./style/globalStyle";
 import { Outlet } from "react-router-dom";
+import { NameSetting } from "./components/NameSetting/NameSetting";
 
 const Frame = styled.div`
   width: 100vw;
