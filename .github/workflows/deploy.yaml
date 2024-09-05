@@ -14,7 +14,9 @@ jobs:
     steps:
       - name: Checkout Source Code
         uses: actions/checkout@v3
-
+      - name: Create .env file
+        run: |
+          echo "VITE_BASE_URL=${{ secrets.VITE_BASE_URL }}" > .env
       - name: Node.js
         uses: actions/setup-node@v3
         with:
