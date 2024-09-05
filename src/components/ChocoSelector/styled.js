@@ -40,17 +40,19 @@ export const BoxItem = styled.div`
   display: flex;
   justify-self: center;
   align-self: center;
-  width: 98px;
-  height: 91px;
+  width: 100px;
+  height: 113.136px;
 
   img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+
     filter: ${({ selected }) =>
       selected ? "drop-shadow(0px 0px 15px rgba(255, 20, 147, 0.8))" : "none"};
 
-    cursor: pointer;
+
+  
   }
 `;
 
