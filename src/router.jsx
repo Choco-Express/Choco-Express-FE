@@ -22,7 +22,7 @@ const router = createBrowserRouter([
         element: <OtherboxPage />,
       },
       {
-        path: "/box/complete",
+        path: "/box/:boxId/complete",
         element: <CompletePage />,
       },
       {
