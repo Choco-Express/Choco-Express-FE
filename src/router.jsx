@@ -9,6 +9,9 @@ import { LetterPostPage } from "./pages/LetterPage/LetterPostPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import MyboxPage from "./pages/MyboxPage/MyboxPage";
 import MyboxSelectPage from "./pages/MyboxSelectPage/MyboxSelectPage";
+import DetailLetter from "./pages/DetailLetter/DetailLetter";
+import ChocoList from "./pages/ChocoList/ChocoList";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -45,6 +48,8 @@ const router = createBrowserRouter([
         path: "/mybox/select",
         element: <MyboxSelectPage />,
       },
+      { path: "/detailletter/:id", element: <DetailLetter /> },
+      { path: "/chocolist", element: <ChocoList /> },
     ],
   },
 ]);
