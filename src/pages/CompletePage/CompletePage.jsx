@@ -1,12 +1,15 @@
 import * as S from "./styled";
 import HeartBackG from "../../components/common/Heartbackground/heartBackG";
-import { useNavigate } from "react-router-dom";
-import { useParams } from "react-router-dom";
-import { useOtherBox } from "../../hooks/useOtherBox";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
 export const CompletePage = () => {
-  const { otherData } = useOtherBox();
   const { boxId } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
+  const otherData = location.state?.otherData;
+
+  if (!otherData) {
+    return <div>Data not found</div>;
+  }
   return (
     <S.Container>
       <HeartBackG />
