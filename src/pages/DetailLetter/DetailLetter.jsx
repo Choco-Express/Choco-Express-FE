@@ -41,7 +41,6 @@ const DetailLetter = () => {
               <S.textContainer>
                 <p className="contents">
                   안녕하세용가리 fjdkfjdkjfdlfjdlfjdljfdljfdf
-                  dfdjkfjdlfjdlfjdlfjd 오태준 바보임 ㅋ
                 </p>
                 <div className="nickName">from.ㅋㅋ</div>
               </S.textContainer>

@@ -2,6 +2,7 @@ import * as S from "./ChocoChoco22";
 import { CHOCOLATES } from "../../constants/Chocolates/data";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+// import { instance } from "../../apis/instance";
 
 const ChocoCheck22 = ({ currentPage, itemsPerPage }) => {
   const [selectedChocoId, setSelectedChocoId] = useState(null);
@@ -15,6 +16,15 @@ const ChocoCheck22 = ({ currentPage, itemsPerPage }) => {
     console.log("Clicked Choco Id:", id);
     navigate(`/detailletter/${id}`);
   };
+
+  // const getchocolist = async () => {
+  //   try {
+  //     const response = await instance.get("/api/choco?page={page}");
+  //     console.log("success", response.data);
+  //   } catch (error) {
+  //     console.error("fail", error);
+  //   }
+  // };
 
   return (
     <S.ListCheck>
