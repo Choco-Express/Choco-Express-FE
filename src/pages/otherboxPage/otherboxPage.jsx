@@ -10,7 +10,7 @@ export const OtherboxPage = () => {
   const MoveOnLetterP = () => {
     const boxId = otherData.boxId;
 
-    navigate(`/box/${boxId}/choco`);
+    navigate(`/box/${boxId}/choco`, { state: { otherData } });
   };
   if (!otherData) {
     return <div>Loading...</div>; // 데이터가 로드되기 전에 로딩 메시지를 표시하거나 로딩 스피너를 추가할 수 있음
