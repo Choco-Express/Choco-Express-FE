@@ -1,9 +1,13 @@
 import axios from "axios";
+import Cookies from 'js-cookie';
+const accessToken = Cookies.get('access_token');
+
 export const instance = axios.create({
   baseURL: import.meta.env.VITE_BASE_URL,
   withCredentials: true,
   headers: {
     "Content-Type": "application/json",
+    Authorization: `Bearer ${accessToken}`,
   },
   timeout: 10000, // 10초 타임아웃 설정
 });
