@@ -4,8 +4,7 @@ import { NameSetting } from "../../components/NameSetting/NameSetting";
 import HeartBackG from "../../components/common/Heartbackground/heartBackG";
 import ChocoSelector from "../../components/ChocoSelector/ChocoSelector";
 import { LetterPost } from "../../components/letterPost/LetterPost";
-import { useNavigate } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { postChocolate } from "../../apis/postChoco";
 
 export const LetterPostPage = () => {
@@ -45,10 +44,10 @@ export const LetterPostPage = () => {
 
     try {
       const res = await postChocolate(boxId, nickName, content, selectedChoco);
-
+      console.log("post된 값:", res);
       if (res.status === 201) {
         console.log("초콜릿전달 성공");
-        navigate("/box/complete");
+        navigate(`/box/${boxId}/complete`);
       } else {
         console.log("초콜릿 전송 실패");
       }
