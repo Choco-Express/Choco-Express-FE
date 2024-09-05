@@ -48,12 +48,11 @@ export const BoxItem = styled.div`
     height: 100%;
     object-fit: contain;
 
-    transform: ${({ selected }) => (selected ? "scale(1.1)" : "scale(0.9)")};
-    cursor: pointer;
+    filter: ${({ selected }) =>
+      selected ? "drop-shadow(0px 0px 15px rgba(255, 20, 147, 0.8))" : "none"};
 
-    &:hover {
-      transform: ${({ selected }) => (selected ? "scale(1.1)" : "scale(0.9)")};
-    }
+
+  
   }
 `;
 
