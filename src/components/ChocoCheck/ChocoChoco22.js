@@ -10,6 +10,6 @@ export const ListCheck = styled.div`
 export const Card = styled.div``;
 
 export const Image = styled.img`
-  width: 80px;
+  width: 100px;
   padding: 5px;
 `;

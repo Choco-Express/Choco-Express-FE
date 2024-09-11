@@ -32,7 +32,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 390px;
   height: 667px;
   background-image: ${({ $selectedBoxId }) =>
     getBackgroundImage($selectedBoxId)};
@@ -77,4 +77,9 @@ export const PageIndicator = styled.div`
   font-family: Pretendard;
   position: absolute;
   top: 530px;
+`;
+
+export const Test = styled.div`
+  position: absolute;
+  top: 500px;
 `;
