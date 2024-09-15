@@ -26,7 +26,7 @@ const router = createBrowserRouter([
         element: <CompletePage />,
       },
       {
-        path: "box/:boxId/choco",
+        path: "/box/:boxId/choco",
         element: <LetterPostPage />,
       },
 
