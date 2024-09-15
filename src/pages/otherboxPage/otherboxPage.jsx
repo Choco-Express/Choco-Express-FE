@@ -34,7 +34,13 @@ export const OtherboxPage = () => {
           >
             초콜릿 보내기
           </S.Button>
-          <S.Button>내 초콜릿 상자 보러가기</S.Button>
+          <S.Button
+            onClick={() => {
+              navigate(`/box/${boxId}`);
+            }}
+          >
+            내 초콜릿 상자 보러가기
+          </S.Button>
         </S.ButtonContainer>
       </S.Wrapper>
     </S.Container>

@@ -20,7 +20,9 @@ export const CompletePage = () => {
         </div>
         <S.ButtonContainer>
           <S.Button onClick={() => navigate(`/box/${boxId}`)}>확인 </S.Button>
-          <S.Button>저도 초콜릿 받아볼래요</S.Button>
+          <S.Button onClick={() => navigate(`/box/${boxId}`)}>
+            저도 초콜릿 받아볼래요
+          </S.Button>
         </S.ButtonContainer>
       </S.Wrapper>
     </S.Container>
