@@ -1,7 +1,6 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 const accessToken = Cookies.get("access_token");
-
 export const instance = axios.create({
   baseURL: import.meta.env.VITE_BASE_URL,
   withCredentials: true,
@@ -30,7 +29,7 @@ instance.interceptors.request.use(
 instance.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response) {
+    if (error.response && error.response.status !== 200) {
       if (error.response.status === 404) {
         console.log("404 error: Page not found");
         window.location.href = "/error";
@@ -40,6 +39,9 @@ instance.interceptors.response.use(
         console.log(
           "USER_LOCATION_002: 사용자와 명소 정보가 일치하지 않습니다."
         );
+        window.location.href = "/error";
+      } else {
+        console.log("Unknown error occurred");
         window.location.href = "/error";
       }
     } else if (error.code === "ECONNABORTED") {
