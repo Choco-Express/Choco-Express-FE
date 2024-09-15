@@ -26,7 +26,7 @@ const router = createBrowserRouter([
         element: <CompletePage />,
       },
       {
-        path: "box/:boxId/choco",
+        path: "/box/:boxId/choco",
         element: <LetterPostPage />,
       },
 
@@ -51,6 +51,7 @@ const router = createBrowserRouter([
       { path: "/detailletter/:id", element: <DetailLetter /> },
       { path: "/chocolist", element: <ChocoList /> },
     ],
+    errorElement: <NotFound />,
   },
 ]);
 
