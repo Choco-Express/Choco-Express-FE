@@ -51,6 +51,7 @@ const router = createBrowserRouter([
       { path: "/detailletter/:id", element: <DetailLetter /> },
       { path: "/chocolist", element: <ChocoList /> },
     ],
+    errorElement: <NotFound />,
   },
 ]);
 
