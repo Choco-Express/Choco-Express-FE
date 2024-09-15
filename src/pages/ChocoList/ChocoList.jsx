@@ -20,7 +20,6 @@ const ChocoList = () => {
     try {
       const response = await instance.get(`/api/choco?page=${page}`);
       console.log("API Response:", response.data);
-
       if (response.data && response.data.message === "SUCCESS") {
         const { chocoList, totalPage } = response.data.result;
         setChocoData(chocoList);
