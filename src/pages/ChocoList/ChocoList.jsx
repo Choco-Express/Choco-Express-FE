@@ -5,22 +5,24 @@ import ChocoCheck33 from "../../components/ChocoCheck/ChocoCheck33";
 import ChocoCheck22 from "../../components/ChocoCheck/ChocoCheck22";
 import { NextBtn } from "../../components/common/Button/NextBtn";
 import { BackBtn } from "../../components/common/Button/BackBtn";
+import { useOtherBox } from "../../hooks/useOtherBox"; // 훅 임포트
 import { instance } from "../../apis/instance";
 
 const ChocoList = () => {
+  const { otherData } = useOtherBox();
   const [currentPage, setCurrentPage] = useState(1);
-  const [selectedBoxId, setSelectedBoxId] = useState(1);
   const [chocoData, setChocoData] = useState([]);
   const [totalPages, setTotalPages] = useState(1);
   const [error, setError] = useState(null);
 
-  const ITEMS_PER_PAGE = selectedBoxId === 4 ? 6 : 9;
+  const ITEMS_PER_PAGE = otherData?.boxId === 4 ? 6 : 9;
 
   const getChocoList = async (page) => {
     try {
       const response = await instance.get(`/api/choco?page=${page}`);
       console.log("API Response:", response.data);
-      if (response.data && response.data.message === "SUCCESS") {
+
+      if (response.data && response.data.message === "OK") {
         const { chocoList, totalPage } = response.data.result;
         setChocoData(chocoList);
         setTotalPages(totalPage);
@@ -36,8 +38,14 @@ const ChocoList = () => {
   };
 
   useEffect(() => {
-    getChocoList(currentPage);
+    if (currentPage > 0) {
+      getChocoList(currentPage);
+    }
   }, [currentPage]);
+
+  if (!otherData) {
+    return <div>로딩 중...</div>;
+  }
 
   const handleNextPage = () => {
     if (currentPage < totalPages) {
@@ -51,14 +59,9 @@ const ChocoList = () => {
     }
   };
 
-  const handleBoxChange = (id) => {
-    setSelectedBoxId(id);
-    setCurrentPage(1);
-  };
-
   return (
-    <S.Wrapper $selectedBoxId={selectedBoxId}>
-      {selectedBoxId === 4 ? (
+    <S.Wrapper $selectedBoxId={otherData.boxId}>
+      {otherData.boxId === 4 ? (
         <ChocoCheck22
           currentPage={currentPage}
           itemsPerPage={ITEMS_PER_PAGE}
@@ -74,7 +77,7 @@ const ChocoList = () => {
         />
       )}
       <S.Logo src={LOGO} alt="Logo" />
-      <S.Name>[김연진]의 초콜릿 상자</S.Name>
+      <S.Name>[{otherData.boxName}]의 초콜릿 상자</S.Name>
       <S.PageIndicator>{`${currentPage} / ${totalPages}`}</S.PageIndicator>
       <S.ButtonContainer>
         <BackBtn onClick={handlePreviousPage} disabled={currentPage === 1} />

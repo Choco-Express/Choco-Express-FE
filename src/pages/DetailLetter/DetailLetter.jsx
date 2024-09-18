@@ -30,7 +30,7 @@ const DetailLetter = () => {
         const response = await instance.get(`/api/choco/${id}`);
         console.log("API Response:", response.data);
 
-        if (response.data && response.data.message === "OK") {
+        if (response.data && response.data.message === "SUCCESS") {
           setLetterData(response.data.result);
           setError(null);
         } else {
