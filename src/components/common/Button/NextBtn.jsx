@@ -1,8 +1,8 @@
 import * as S from "./styled";
-export const NextBtn = ({ onClick }) => {
+export const NextBtn = ({ onClick, label = "다음" }) => { // 다음을 기본값으로 두고 원하는대로 바꿀 수 있습니다.
   return (
     <S.Btn onClick={onClick}>
-      <div>다음</div>
+      <div>{label}</div>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="10"
