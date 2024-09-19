@@ -87,4 +87,9 @@ export const Btn_MakeBox = styled.div`
   font-size: 1.0625rem; // 17px
   font-style: normal;
   font-weight: 600;
+
+  &:hover,
+  :active {
+    background: #f34381;
+  }
 `;

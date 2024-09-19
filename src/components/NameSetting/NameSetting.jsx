@@ -9,6 +9,8 @@ export const NameSetting = ({
   onInputChange,
   onSubmit,
   onBack,
+  showBackBtn = true,
+  showNextBtn = true, // 기본적으로 다음 버튼을 활성화해놓는다.
 }) => {
   const handleNextClick = () => {
     if (inputValue) {
@@ -37,8 +39,12 @@ export const NameSetting = ({
         </S.Enter>
       </S.FormContainer>
       <S.buttonContainer>
-        <BackBtn onClick={handleBackClick} />
-        <NextBtn onClick={handleNextClick} />
+        {showBackBtn && (
+          <BackBtn onClick={handleBackClick} />
+        )}
+        {showNextBtn && (
+          <NextBtn onClick={handleNextClick} label="다음" />
+        )}
       </S.buttonContainer>
     </S.Wrapper>
   );
