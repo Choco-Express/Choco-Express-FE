@@ -34,3 +34,11 @@ export const CenterText = styled.div`
   display: flex;
   text-align: center;
 `;
+
+export const buttonContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  position: absolute;
+  bottom: 10px;
+`;
