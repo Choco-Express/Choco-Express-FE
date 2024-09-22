@@ -14,7 +14,7 @@ export const HEART = styled.img`
 export const Logo = styled.img`
   display: flex;
   position: absolute;
-  top: 20px;
+  top: 5px;
 `;
 
 export const LoginLogo = styled.img`
