@@ -1,5 +1,4 @@
-// 주석 정리한 버전
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
 import * as S from "./styled";
 import HeartBackG from "../../components/common/Heartbackground/heartBackG";
 import { useState, useEffect } from "react";
@@ -14,15 +13,14 @@ const DetailLetter = () => {
   const [letterData, setLetterData] = useState(null);
   const [error, setError] = useState(null);
 
-  const chocoToLetterMapping = {
-    1: 1,
-    2: 2,
-    3: 3,
-    4: 4,
-    5: 5,
-    6: 6,
-  };
-  // 초코 아이디랑 편지지 디자인 맵핑...
+  // const chocoToLetterMapping = {
+  //   1: 1,
+  //   2: 2,
+  //   3: 3,
+  //   4: 4,
+  //   5: 5,
+  //   6: 6,
+  // };
 
   useEffect(() => {
     const fetchLetterData = async () => {
@@ -30,7 +28,7 @@ const DetailLetter = () => {
         const response = await instance.get(`/api/choco/${id}`);
         console.log("API Response:", response.data);
 
-        if (response.data && response.data.message === "OK") {
+        if (response.data && response.data.message === "SUCCESS") {
           setLetterData(response.data.result);
           setError(null);
         } else {
@@ -51,16 +49,19 @@ const DetailLetter = () => {
     fetchLetterData();
   }, [id]);
 
-  const letterDesignId = letterData
-    ? chocoToLetterMapping[letterData.chocoId]
-    : 1;
+  const { state } = useLocation(); // * useLocation으로 state 가져오기
+  const { chocoType } = state || {}; // * chocoType
+
+  // * chocoType과 letter 이미지 매핑
+  const letterDesignId = chocoType ? chocoType : 1; // chocoType을 사용하여 letterDesignId 결정
+
   const selectedLetter = LETTERS.find((letter) => letter.id === letterDesignId);
 
   // 아래로는 삭제 코드
   const handleDeleteClick = async () => {
     try {
       const response = await instance.delete(`/api/choco/${id}`);
-      if (response.data && response.data.message === "OK") {
+      if (response.data && response.data.message === "SUCCESS") {
         alert("삭제가 완료되었습니다.");
         navigate(-1);
       } else {
@@ -83,6 +84,7 @@ const DetailLetter = () => {
           ) : letterData ? (
             <>
               <S.Letter
+                // * selectedLetter의 src를 사용하여 편지 이미지 렌더링
                 src={selectedLetter ? selectedLetter.src : ""}
                 alt={`Letter ${letterData.id}`}
               />
