@@ -1,7 +1,7 @@
 import * as S from "./styled";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { LETTERS } from "../../constants/letters"; // LETTERS 배열을 임포트
+import { CHOCOLATES } from "../../constants/chocolates"; // CHOCOLATES 배열을 임포트
 
 const ChocoCheck33 = ({ currentPage, itemsPerPage, chocoData, error }) => {
   const [selectedChocoId, setSelectedChocoId] = useState(null);
@@ -10,10 +10,12 @@ const ChocoCheck33 = ({ currentPage, itemsPerPage, chocoData, error }) => {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentItems = chocoData.slice(startIndex, startIndex + itemsPerPage);
 
-  const handleChocoClick = (id) => {
+  // * handleChocoClick 함수가 수정되었습니다.
+  const handleChocoClick = (id, chocoType) => {
+    // chocoType 인자를 추가
     setSelectedChocoId(id);
-    console.log("Clicked Choco Id:", id);
-    navigate(`/detailletter/${id}`);
+    console.log("Clicked Choco Id:", id, "Choco Type:", chocoType); // chocoType을 콘솔에 출력
+    navigate(`/detailletter/${id}`, { state: { chocoType } }); // * chocoType을 state로 함께 전달
   };
 
   if (error) {
@@ -23,16 +25,18 @@ const ChocoCheck33 = ({ currentPage, itemsPerPage, chocoData, error }) => {
   return (
     <S.ListCheck>
       {currentItems.map((item) => {
-        // chocoType에 맞는 이미지를 LETTERS에서 찾음
-        const letter = LETTERS.find((letter) => letter.id === item.chocoType);
+        const chocolate = CHOCOLATES.find(
+          (choco) => choco.id === item.chocoType
+        );
 
         return (
           <S.Card
             key={item.id}
-            onClick={() => handleChocoClick(item.id)}
+            // * handleChocoClick 호출 시 chocoType을 인자로 추가
+            onClick={() => handleChocoClick(item.id, item.chocoType)}
             selected={selectedChocoId === item.id}
           >
-            <S.Image src={letter?.src} alt={`Chocolate ${item.id}`} />
+            <S.Image src={chocolate?.src} alt={`Chocolate ${item.id}`} />
           </S.Card>
         );
       })}
