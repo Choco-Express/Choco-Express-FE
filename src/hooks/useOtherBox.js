@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 export const useOtherBox = () => {
   const { boxId } = useParams();
   console.log("박스 id는 :", boxId);
+
   const [otherData, setOtherData] = useState(null);
 
   const fetchOtherBoxData = async () => {
