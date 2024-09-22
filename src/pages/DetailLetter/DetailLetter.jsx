@@ -61,7 +61,11 @@ const DetailLetter = () => {
   const handleDeleteClick = async () => {
     try {
       const response = await instance.delete(`/api/choco/${id}`);
-      if (response.data && response.data.message === "SUCCESS") {
+
+      if (!response || response.status === 204) {
+        alert("삭제가 완료되었습니다.");
+        navigate(-1);
+      } else if (response.data && response.data.message === "SUCCESS") {
         alert("삭제가 완료되었습니다.");
         navigate(-1);
       } else {
