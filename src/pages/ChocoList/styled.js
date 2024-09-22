@@ -15,8 +15,11 @@ const backgroundImages = [
   BackImg6,
 ];
 
-const getBackgroundImage = (id) => {
-  return backgroundImages[id - 1] ? `url(${backgroundImages[id - 1]})` : "none";
+// boxType을 인자로 받아 해당하는 배경 이미지를 반환
+const getBackgroundImage = (boxType) => {
+  return backgroundImages[boxType - 1]
+    ? `url(${backgroundImages[boxType - 1]})`
+    : "none";
 };
 
 export const Wrapper = styled.div`
@@ -27,8 +30,8 @@ export const Wrapper = styled.div`
   align-items: center;
   width: 390px;
   height: 667px;
-  background-image: ${({ $selectedBoxId }) =>
-    getBackgroundImage($selectedBoxId)};
+  background-image: ${({ $selectedBoxType }) =>
+    getBackgroundImage($selectedBoxType)}; /* boxType에 맞는 배경 이미지 적용 */
   background-size: cover;
   background-position: center;
   background-color: lightgrey;
