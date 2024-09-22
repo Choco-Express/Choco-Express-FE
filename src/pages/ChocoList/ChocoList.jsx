@@ -15,7 +15,7 @@ const ChocoList = () => {
   const [totalPages, setTotalPages] = useState(1);
   const [error, setError] = useState(null);
 
-  const ITEMS_PER_PAGE = otherData?.boxId === 4 ? 6 : 9;
+  const ITEMS_PER_PAGE = otherData?.boxType === 4 ? 6 : 9;
 
   const getChocoList = async (page) => {
     try {
@@ -60,8 +60,8 @@ const ChocoList = () => {
   };
 
   return (
-    <S.Wrapper $selectedBoxId={otherData.boxId}>
-      {otherData.boxId === 4 ? (
+    <S.Wrapper $selectedBoxType={otherData.boxType}>
+      {otherData.boxType === 4 ? (
         <ChocoCheck22
           currentPage={currentPage}
           itemsPerPage={ITEMS_PER_PAGE}

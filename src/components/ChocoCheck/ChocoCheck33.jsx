@@ -1,7 +1,7 @@
 import * as S from "./styled";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { CHOCOLATES } from "../../constants/chocolates"; // CHOCOLATES 배열을 임포트
+import { CHOCOLATES } from "../../constants/Chocolates/data.js";
 
 const ChocoCheck33 = ({ currentPage, itemsPerPage, chocoData, error }) => {
   const [selectedChocoId, setSelectedChocoId] = useState(null);
