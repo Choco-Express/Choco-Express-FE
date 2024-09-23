@@ -11,6 +11,7 @@ import MyboxPage from "./pages/MyboxPage/MyboxPage";
 import MyboxSelectPage from "./pages/MyboxSelectPage/MyboxSelectPage";
 import DetailLetter from "./pages/DetailLetter/DetailLetter";
 import ChocoList from "./pages/ChocoList/ChocoList";
+import { MyPage } from "./pages/MyPage/MyPage";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,7 @@ const router = createBrowserRouter([
       },
       { path: "/detailletter/:id", element: <DetailLetter /> },
       { path: "/chocolist", element: <ChocoList /> },
+      { path: "/mypage", element: <MyPage /> },
     ],
     errorElement: <NotFound />,
   },
