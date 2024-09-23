@@ -10,54 +10,22 @@ export const shareInsta = () => {
     buttons.forEach((button) => (button.style.visibility = "hidden"));
 
     // 이미지가 모두 로드된 후 캡처
-    const images = element.querySelectorAll("img");
-    let loadedImages = 0;
+    html2canvas(element, { useCORS: true }).then((canvas) => {
+      const imageData = canvas.toDataURL("image/png");
 
-    images.forEach((img) => {
-      if (img.complete) {
-        loadedImages++;
-      } else {
-        img.onload = () => {
-          loadedImages++;
-          if (loadedImages === images.length) {
-            captureAndShare(element, buttons); // 캡처 함수 호출
-          }
-        };
-      }
+      // 캡처 후 버튼 다시 보이게
+      buttons.forEach((button) => (button.style.visibility = "visible"));
+
+      // 1초 대기 후 인스타그램으로 이동
+      setTimeout(() => {
+        if (isIOS || isAndroid) {
+          const storyUri = `instagram-stories://share?source_application=your.app.package`;
+          window.location.href = storyUri;
+        } else {
+          // 인스타그램 웹으로 리디렉션
+          window.location.href = "https://www.instagram.com/";
+        }
+      }, 2500);
     });
-
-    if (loadedImages === images.length) {
-      captureAndShare(element, buttons); // 캡처 함수 호출
-    }
   }
-};
-
-const captureAndShare = (element, buttons) => {
-  html2canvas(element, {
-    useCORS: true, // CORS 문제 해결을 위한 옵션
-  }).then((canvas) => {
-    // 캡처된 이미지를 Data URI로 변환
-    const imageUri = canvas;
-
-    // 다운로드 기능 (선택 사항)
-    const link = document.createElement("a");
-    link.download = "choco-express.png"; // 저장될 파일명
-    link.href = imageUri;
-    link.click();
-
-    // 캡처 후 버튼 다시 보이게
-    buttons.forEach((button) => (button.style.visibility = "visible"));
-
-    // 1초 대기 후 인스타그램으로 이동
-    setTimeout(() => {
-      console.log(imageUri);
-      if (isIOS || isAndroid) {
-        const storyUri = `instagram-stories://share?source_application=your.app.package&background_image=${imageUri}`;
-        window.location.href = storyUri;
-      } else {
-        // 인스타그램 웹으로 리디렉션
-        window.location.href = "https://www.instagram.com/";
-      }
-    }, 1000); // 1초 대기
-  });
 };
