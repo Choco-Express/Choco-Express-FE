@@ -51,11 +51,11 @@ const captureAndShare = (element, buttons) => {
     setTimeout(() => {
       console.log(imageUri);
       if (isIOS) {
-        const storyUri = `instagram-stories://share?source_application=your.app.package`;
-        window.location.href = storyUri;
+        window.location.replace("https://www.instagram.com/create/story");
       } else if (isAndroid) {
-        const storyUri = `intent://instagram.com/#Intent;scheme=https;package=com.instagram.android;end`;
-        window.location.href = storyUri;
+        window.location.replace(
+          "intent://instagram.com/#Intent;scheme=https;package=com.instagram.android;end"
+        );
       } else {
         // 인스타그램 웹으로 리디렉션
         window.location.href = "https://www.instagram.com/create/story";
