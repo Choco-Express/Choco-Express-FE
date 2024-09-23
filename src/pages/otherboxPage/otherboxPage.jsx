@@ -11,7 +11,7 @@ export const OtherboxPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const token = Cookies.get("access_token");
-  const boxId = otherData.boxId;
+  const boxId = otherData ? otherData.boxId : null;
 
   const MoveOnLetterP = () => {
     if (!token) {
