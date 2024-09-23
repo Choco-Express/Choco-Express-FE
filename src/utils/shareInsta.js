@@ -57,11 +57,10 @@ const captureAndShare = (element, buttons) => {
 
 // 캡처 완료 후 인스타그램으로 이동하는 콜백 함수
 const redirectToInsta = (imageUri) => {
-  const backgroundColor = "#ffffff"; // 예시로 흰색 배경
   const link = "https://choco-express.site"; // 공유할 링크
 
   if (isIOS || isAndroid) {
-    const storyUri = `instagram-stories://share?source_application=your.app.package&background_image=${imageUri}&background_top_color=${backgroundColor}&background_bottom_color=${backgroundColor}&content_url=${link}`;
+    const storyUri = `instagram-stories://share?source_application=your.app.package&background_image=${imageUri}&content_url=${link}`;
 
     window.location.href = storyUri;
   } else {
