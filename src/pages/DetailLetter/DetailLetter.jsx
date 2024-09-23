@@ -57,11 +57,10 @@ const DetailLetter = () => {
 
   const selectedLetter = LETTERS.find((letter) => letter.id === letterDesignId);
 
-  // 아래로는 삭제 코드
+  // 아래로는 삭제 코드 수정
   const handleDeleteClick = async () => {
     try {
       const response = await instance.delete(`/api/choco/${id}`);
-      //
       if (!response || response.status === 204) {
         alert("삭제가 완료되었습니다.");
         navigate(-1);
