@@ -9,7 +9,7 @@ export const shareInsta = () => {
     const buttons = element.querySelectorAll("button");
     buttons.forEach((button) => (button.style.visibility = "hidden"));
 
-    // 모든 이미지가 로드된 후 캡처
+    // 이미지가 모두 로드된 후 캡처
     const images = element.querySelectorAll("img");
     let loadedImages = 0;
 
@@ -60,8 +60,7 @@ const redirectToInsta = (imageUri) => {
   const link = "https://choco-express.site"; // 공유할 링크
 
   if (isIOS || isAndroid) {
-    const storyUri = `instagram-stories://share?source_application=your.app.package&background_image=${imageUri}&content_url=${link}`;
-
+    const storyUri = `instagram-stories://share?background_image=${imageUri}`;
     window.location.href = storyUri;
   } else {
     // 인스타그램 웹으로 리디렉션
