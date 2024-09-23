@@ -1,50 +1,45 @@
 import * as S from "./ChocoChoco22";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { CHOCOLATES } from "../../constants/Chocolates/data.js";
 
 const ChocoCheck22 = ({ currentPage, itemsPerPage, chocoData, error }) => {
   const [selectedChocoId, setSelectedChocoId] = useState(null);
   const navigate = useNavigate();
 
-  // chocoType 값을 이미지 경로로 매핑하는 객체
-  const imageMap = {
-    1: "/assets/images/Chocolates/Chocolate_1.svg",
-    2: "/assets/images/Chocolates/Chocolate_2.svg",
-    3: "/assets/images/Chocolates/Chocolate_3.svg",
-    4: "/assets/images/Chocolates/Chocolate_4.svg",
-    5: "/assets/images/Chocolates/Chocolate_5.svg",
-    6: "/assets/images/Chocolates/Chocolate_6.svg",
-  };
-
-  // 현재 페이지에 표시될 아이템 계산
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentItems = chocoData.slice(startIndex, startIndex + itemsPerPage);
 
-  const handleChocoClick = (id) => {
+  // * handleChocoClick 함수가 수정되었습니다.
+  const handleChocoClick = (id, chocoType) => {
+    // chocoType 인자를 추가
     setSelectedChocoId(id);
-    console.log("Clicked Choco Id:", id);
-    navigate(`/detailletter/${id}`);
+    console.log("Clicked Choco Id:", id, "Choco Type:", chocoType); // chocoType을 콘솔에 출력
+    navigate(`/detailletter/${id}`, { state: { chocoType } }); // * chocoType을 state로 함께 전달
   };
 
   if (error) {
-    return <p>{error}</p>; // 오류 메시지 표시
+    return <p>{error}</p>;
   }
 
   return (
     <S.ListCheck>
-      {currentItems.map((item) => (
-        <S.Card
-          key={item.id}
-          onClick={() => handleChocoClick(item.id)}
-          selected={selectedChocoId === item.id}
-        >
-          {/* chocoType 값을 사용하여 이미지 경로 매핑 */}
-          <S.Image
-            src={imageMap[item.chocoType] || "/images/chocolates/default.png"}
-            alt={`Chocolate ${item.id}`}
-          />
-        </S.Card>
-      ))}
+      {currentItems.map((item) => {
+        const chocolate = CHOCOLATES.find(
+          (choco) => choco.id === item.chocoType
+        );
+
+        return (
+          <S.Card
+            key={item.id}
+            // * handleChocoClick 호출 시 chocoType을 인자로 추가
+            onClick={() => handleChocoClick(item.id, item.chocoType)}
+            selected={selectedChocoId === item.id}
+          >
+            <S.Image src={chocolate?.src} alt={`Chocolate ${item.id}`} />
+          </S.Card>
+        );
+      })}
     </S.ListCheck>
   );
 };

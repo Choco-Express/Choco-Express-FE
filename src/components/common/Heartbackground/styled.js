@@ -6,6 +6,7 @@ export const ImgContainer = styled.div`
   align-items: center;
   margin-top: 30px;
   position: relative;
+  width: 100%;
 `;
 
 export const HEART = styled.img`
