@@ -50,8 +50,9 @@ const captureAndShare = (element, buttons) => {
 
     // 1초 대기 후 인스타그램으로 이동
     setTimeout(() => {
+      console.log(imageUri);
       if (isIOS || isAndroid) {
-        const storyUri = `instagram-stories://share?source_application=your.app.package&background_image=${imageUri}`;
+        const storyUri = `instagram-stories://share?source_application=your.app.package`;
         window.location.href = storyUri;
       } else {
         // 인스타그램 웹으로 리디렉션
