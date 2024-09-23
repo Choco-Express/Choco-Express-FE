@@ -20,7 +20,7 @@ export const NotFound = () => {
         </S.ComentContainer>
         <S.HomeBtn
           onClick={() => {
-            navigate(``);
+            navigate(`/mypage`);
           }}
         >
           메인으로

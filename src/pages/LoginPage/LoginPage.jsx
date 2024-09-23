@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import * as S from "./Styled";
-
 import HeartBackGlogin from "../../components/common/Heartbackground/heartBackGlogin";
 import KakaoLogo from "../../assets/images/Icon/KakaoLogo.svg";
 import GoogleLogo from "../../assets/images/Icon/GoogleLogo.svg";
