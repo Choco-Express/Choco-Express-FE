@@ -11,6 +11,7 @@ export const useOtherBox = () => {
   const fetchOtherBoxData = async () => {
     try {
       const res = await getOtherBoxContents(boxId);
+      console.log("훅입니다.res.data.result:", res.data.result);
       setOtherData(res.data.result);
     } catch (err) {
       console.log(err);
