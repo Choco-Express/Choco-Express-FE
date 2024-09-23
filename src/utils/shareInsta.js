@@ -50,20 +50,13 @@ const captureAndShare = (element, buttons) => {
 
     // 1초 대기 후 인스타그램으로 이동
     setTimeout(() => {
-      redirectToInsta(imageUri);
+      if (isIOS || isAndroid) {
+        const storyUri = `instagram-stories://share?background_image=${imageUri}`;
+        window.location.href = storyUri;
+      } else {
+        // 인스타그램 웹으로 리디렉션
+        window.location.href = "https://www.instagram.com/";
+      }
     }, 1000); // 1초 대기
   });
-};
-
-// 캡처 완료 후 인스타그램으로 이동하는 콜백 함수
-const redirectToInsta = (imageUri) => {
-  const link = "https://choco-express.site"; // 공유할 링크
-
-  if (isIOS || isAndroid) {
-    const storyUri = `instagram-stories://share?background_image=${imageUri}`;
-    window.location.href = storyUri;
-  } else {
-    // 인스타그램 웹으로 리디렉션
-    window.location.href = "https://www.instagram.com/";
-  }
 };
