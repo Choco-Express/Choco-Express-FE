@@ -37,7 +37,7 @@ const captureAndShare = (element, buttons) => {
     useCORS: true, // CORS 문제 해결을 위한 옵션
   }).then((canvas) => {
     // 캡처된 이미지를 Data URI로 변환
-    const imageUri = canvas;
+    const imageUri = canvas.toDataURL("image/png");
 
     // 다운로드 기능 (선택 사항)
     const link = document.createElement("a");
@@ -48,20 +48,18 @@ const captureAndShare = (element, buttons) => {
     // 캡처 후 버튼 다시 보이게
     buttons.forEach((button) => (button.style.visibility = "visible"));
 
-    // 1초 대기 후 인스타그램으로 이동
     setTimeout(() => {
       console.log(imageUri);
       if (isIOS) {
         const storyUri = `instagram-stories://share?source_application=your.app.package`;
         window.location.href = storyUri;
       } else if (isAndroid) {
-        window.location.replace(
-          "intent://instagram.com/#Intent;scheme=https;package=com.instagram.android;end"
-        );
+        const storyUri = `intent://instagram.com/#Intent;scheme=https;package=com.instagram.android;end`;
+        window.location.href = storyUri;
       } else {
         // 인스타그램 웹으로 리디렉션
         window.location.href = "https://www.instagram.com/create/story";
       }
-    }, 2500); // 1초 대기
+    }, 2500); // 2.5초 대기
   });
 };
