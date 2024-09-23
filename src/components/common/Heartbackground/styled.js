@@ -11,6 +11,7 @@ export const ImgContainer = styled.div`
 
 export const HEART = styled.img`
   display: flex;
+  width: 100%;
 `;
 export const Logo = styled.img`
   display: flex;

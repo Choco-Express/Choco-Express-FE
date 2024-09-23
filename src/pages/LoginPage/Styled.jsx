@@ -16,6 +16,7 @@ export const Wrapper = styled.div`
   color: white;
   gap: 20px;
   height: 437px;
+  width: 100%;
   align-items: center;
   margin-top: 5rem;
 `;
@@ -39,7 +40,7 @@ export const Btn_Kakaologin = styled.div`
   cursor: pointer;
 
   border-radius: 0.375rem; // 6px
-  background: #FEE500;
+  background: #fee500;
 
   color: #000;
   font-family: Pretendard;
@@ -60,8 +61,9 @@ export const Btn_Googlelogin = styled.div`
   cursor: pointer;
 
   border-radius: 0.375rem; // 6px
-  background: #FFF;
-  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.08), 0px 1px 2px 0px rgba(0, 0, 0, 0.25);
+  background: #fff;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.08),
+    0px 1px 2px 0px rgba(0, 0, 0, 0.25);
 
   color: rgba(0, 0, 0, 0.54);
   font-family: Pretendard;
@@ -82,9 +84,9 @@ export const Btn_Naverlogin = styled.div`
   cursor: pointer;
 
   border-radius: 0.375rem; // 6px
-  background: #03C75A;
+  background: #03c75a;
 
-  color: #FFF;
+  color: #fff;
   font-family: Pretendard;
   font-size: 1.125rem; // 18px
   font-style: normal;
