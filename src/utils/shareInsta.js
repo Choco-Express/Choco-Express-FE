@@ -51,14 +51,14 @@ const captureAndShare = (element, buttons) => {
     setTimeout(() => {
       console.log(imageUri);
       if (isIOS) {
-        window.location.replace("https://www.instagram.com/create/story");
+        window.location.replace("instagram-stories://share");
       } else if (isAndroid) {
         window.location.replace(
           "intent://instagram.com/#Intent;scheme=https;package=com.instagram.android;end"
         );
       } else {
         // 인스타그램 웹으로 리디렉션
-        window.location.href = "https://www.instagram.com/create/story";
+        window.location.replace("https://www.instagram.com/create/story");
       }
     }, 2500); // 2.5초 대기
   });
