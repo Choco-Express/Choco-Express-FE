@@ -47,19 +47,5 @@ const captureAndShare = (element, buttons) => {
 
     // 캡처 후 버튼 다시 보이게
     buttons.forEach((button) => (button.style.visibility = "visible"));
-
-    setTimeout(() => {
-      console.log(imageUri);
-      if (isIOS) {
-        window.location.replace("instagram-stories://share");
-      } else if (isAndroid) {
-        window.location.replace(
-          "intent://instagram.com/#Intent;scheme=https;package=com.instagram.android;end"
-        );
-      } else {
-        // 인스타그램 웹으로 리디렉션
-        window.location.replace("https://www.instagram.com/create/story");
-      }
-    }, 2500); // 2.5초 대기
   });
 };
