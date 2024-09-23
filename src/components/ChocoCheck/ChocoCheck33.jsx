@@ -10,11 +10,10 @@ const ChocoCheck33 = ({ currentPage, itemsPerPage, chocoData, error }) => {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentItems = chocoData.slice(startIndex, startIndex + itemsPerPage);
 
-  // * handleChocoClick 함수가 수정되었습니다.
   const handleChocoClick = (id, chocoType) => {
-    // chocoType 인자를 추가
+    // chocoType 추가
     setSelectedChocoId(id);
-    console.log("Clicked Choco Id:", id, "Choco Type:", chocoType); // chocoType을 콘솔에 출력
+    console.log("Clicked Choco Id:", id, "Choco Type:", chocoType);
     navigate(`/detailletter/${id}`, { state: { chocoType } }); // * chocoType을 state로 함께 전달
   };
 
