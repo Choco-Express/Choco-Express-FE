@@ -60,6 +60,7 @@ export const ModifyBtn = styled.div`
   top: 1rem;
   right: 1.5rem;
   position: absolute;
+  cursor: pointer;
 `;
 
 export const BoxImg = styled.div`
