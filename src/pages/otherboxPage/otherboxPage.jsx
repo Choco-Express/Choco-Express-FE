@@ -1,19 +1,47 @@
 import * as S from "./styled";
 import HeartBackG from "../../components/common/Heartbackground/heartBackG";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { BOXES } from "../../constants/Boxes/data";
 import { useOtherBox } from "../../hooks/useOtherBox";
+import Cookies from "js-cookie";
+
 export const OtherboxPage = () => {
   const { otherData } = useOtherBox();
-  console.log("otherData:", otherData);
+  console.log("상대방 박스 조회 data:", otherData);
   const navigate = useNavigate();
-  const MoveOnLetterP = () => {
-    const boxId = otherData.boxId;
+  const location = useLocation();
+  const token = Cookies.get("access_token");
+  const boxId = otherData ? otherData.boxId : null;
 
-    navigate(`/box/${boxId}/choco`, { state: { otherData } });
+  const MoveOnLetterP = () => {
+    if (!token) {
+      // 토큰이 없으면 로그인 페이지로 리다이렉트하고, 돌아올 페이지 정보를 함께 전달
+      sessionStorage.setItem(
+        "redirectURL",
+        `https://choco-express.site/box/${boxId}/choco`
+      );
+      navigate("");
+    } else {
+      // 토큰이 있으면 초콜릿 보내기 페이지로 이동
+      navigate(`/box/${boxId}/choco`, { state: { otherData } });
+    }
+  };
+
+  const MoveOnMainP = () => {
+    if (!token) {
+      // 토큰이 없으면 로그인 페이지로 리다이렉트하고, 돌아올 페이지 정보를 함께 전달
+      sessionStorage.setItem(
+        "redirectURL",
+        `https://choco-express.site/box/${boxId}/choco`
+      );
+      navigate("");
+    } else {
+      // 토큰이 있으면 나만의 박스 조회 페이지로 이동
+      navigate(`/mypage`);
+    }
   };
   if (!otherData) {
-    return <div>Loading...</div>; // 데이터가 로드되기 전에 로딩 메시지를 표시하거나 로딩 스피너를 추가할 수 있음
+    return <div>Loading...</div>;
   }
   const selectedBox = BOXES.find((box) => box.id === otherData.boxType);
   return (
@@ -34,7 +62,13 @@ export const OtherboxPage = () => {
           >
             초콜릿 보내기
           </S.Button>
-          <S.Button>내 초콜릿 상자 보러가기</S.Button>
+          <S.Button
+            onClick={() => {
+              MoveOnMainP();
+            }}
+          >
+            내 초콜릿 상자 보러가기
+          </S.Button>
         </S.ButtonContainer>
       </S.Wrapper>
     </S.Container>
