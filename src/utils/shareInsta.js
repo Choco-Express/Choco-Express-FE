@@ -37,7 +37,7 @@ const captureAndShare = (element, buttons) => {
     useCORS: true, // CORS 문제 해결을 위한 옵션
   }).then((canvas) => {
     // 캡처된 이미지를 Data URI로 변환
-    const imageUri = canvas.toDataURL("image/png");
+    const imageUri = canvas;
 
     // 다운로드 기능 (선택 사항)
     const link = document.createElement("a");
@@ -52,7 +52,7 @@ const captureAndShare = (element, buttons) => {
     setTimeout(() => {
       console.log(imageUri);
       if (isIOS || isAndroid) {
-        const storyUri = `instagram-stories://share?source_application=your.app.package`;
+        const storyUri = `instagram-stories://share?source_application=your.app.package&background_image=${imageUri}`;
         window.location.href = storyUri;
       } else {
         // 인스타그램 웹으로 리디렉션
