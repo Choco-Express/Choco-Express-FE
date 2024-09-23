@@ -11,6 +11,8 @@ import MyboxPage from "./pages/MyboxPage/MyboxPage";
 import MyboxSelectPage from "./pages/MyboxSelectPage/MyboxSelectPage";
 import DetailLetter from "./pages/DetailLetter/DetailLetter";
 import ChocoList from "./pages/ChocoList/ChocoList";
+import { MyPage } from "./pages/MyPage/MyPage";
+import { SharePage } from "./pages/Share/Share";
 
 const router = createBrowserRouter([
   {
@@ -29,7 +31,10 @@ const router = createBrowserRouter([
         path: "/box/:boxId/choco",
         element: <LetterPostPage />,
       },
-
+      {
+        path: "/share",
+        element: <SharePage />,
+      },
       //API연결 시 수정
 
       {
@@ -50,6 +55,7 @@ const router = createBrowserRouter([
       },
       { path: "/detailletter/:id", element: <DetailLetter /> },
       { path: "/chocolist", element: <ChocoList /> },
+      { path: "/mypage", element: <MyPage /> },
     ],
     errorElement: <NotFound />,
   },

@@ -51,12 +51,33 @@ export const GlobalStyle = createGlobalStyle`
       display: none;
   }
 
-  body {
-    touch-action: manipulation;
-    background-size: 100%;
-    background-repeat: repeat;
-    overflow-x: hidden; 
-  }
+
+  html {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	-webkit-touch-callout: none;
+    -webkit-tap-highlight-color:rgb(0 0 0 / 0%);
+    scroll-behavior: smooth; 
+
+	@media (max-width: 360px) {
+		font-size:12px;
+	}
+}
+
+body {
+	width: 100%;
+  min-height: 100vh;
+	max-width: 540px;
+	overflow-x: hidden;
+  background-color: #fef7e2;
+
+	/* font-family: "AppleSDGothicNeoL00", "AppleSDGothicNeoH00", "AppleSDGothicNeoB00", "AppleSDGothicNeoUL00", "AppleSDGothicNeoT0C", sans-serif; */
+}
+
+
+
+
   menu, ol, ul {
     list-style: none;
   }
@@ -88,7 +109,6 @@ export const GlobalStyle = createGlobalStyle`
     -o-text-size-adjust: none; /*old versions of Opera*/
     scroll-behavior: smooth;
 
-    font-family: sans-serif;
 
   }
   ul, li {
