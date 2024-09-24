@@ -62,9 +62,9 @@ const DetailLetter = () => {
     try {
       const response = await instance.delete(`/api/choco/${id}`);
 
-      // 204 응답
-      if (!response || response.status === 204) {
-        alert("삭제가 완료되었습니다.");
+      if (response.data) {
+        console.log("삭제가 완료되었습니다.");
+
         navigate(-1);
       } else {
         console.error("Unexpected response structure:", response);
