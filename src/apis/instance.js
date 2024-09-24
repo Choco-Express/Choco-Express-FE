@@ -34,21 +34,21 @@ instance.interceptors.response.use(
     if (error.response && error.response.status !== 200) {
       if (error.response.status === 404) {
         console.log("404 error: Page not found");
-        window.location.href = "/error";
+        // window.location.href = "/error";
       }
       const errorCode = error.response.data?.errorCode;
       if (errorCode === "USER_LOCATION_002") {
         console.log(
           "USER_LOCATION_002: 사용자와 명소 정보가 일치하지 않습니다."
         );
-        window.location.href = "/error";
+        // window.location.href = "/error";
       } else {
         console.log("Unknown error occurred");
-        window.location.href = "/error";
+        // window.location.href = "/error";
       }
     } else if (error.code === "ECONNABORTED") {
       console.log("Request timeout");
-      window.location.href = "/error";
+      // window.location.href = "/error";
     }
     return Promise.reject(error);
   }

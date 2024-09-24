@@ -34,7 +34,7 @@ export const OtherboxPage = () => {
       // 토큰이 없으면 로그인 페이지로 리다이렉트하고, 돌아올 페이지 정보를 함께 전달
       sessionStorage.setItem(
         "redirectUrl",
-        `https://choco-express.site/box/${boxId}/choco`
+        `https://choco-express.site/box/${boxId}`
       );
       navigate("/");
     } else {
