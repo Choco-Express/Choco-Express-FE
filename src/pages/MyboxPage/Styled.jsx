@@ -27,7 +27,13 @@ export const Wrapper = styled.div`
   gap: 20px;
   height: 437px;
   align-items: center;
-  margin-top: 5rem;
+
+  @media (min-width: 391px) and (max-width: 450px) {
+    margin-top: 8rem;
+  }
+  @media (max-width: 390px) {
+    margin-top: 13rem;
+  }
 `;
 
 export const Container_2 = styled.div`
@@ -37,7 +43,7 @@ export const Container_2 = styled.div`
 `;
 
 export const Text700 = styled.div`
-  color: #FEF7E2;
+  color: #fef7e2;
 
   text-align: center;
   font-family: Pretendard;
@@ -47,7 +53,7 @@ export const Text700 = styled.div`
 `;
 
 export const Text600 = styled.div`
-  color: #FEF7E2;
+  color: #fef7e2;
 
   text-align: center;
   font-family: Pretendard;
@@ -57,7 +63,7 @@ export const Text600 = styled.div`
 `;
 
 export const Text500 = styled.div`
-  color: #FEF7E2;
+  color: #fef7e2;
 
   text-align: center;
   font-family: Pretendard;
@@ -78,10 +84,10 @@ export const Btn_MakeBox = styled.div`
   flex-shrink: 0;
 
   border-radius: 1.875rem; // 30px
-  border: 2px solid #FEF7E2;
-  background: #532A13;
+  border: 2px solid #fef7e2;
+  background: #532a13;
 
-  color: #FEF7E2;
+  color: #fef7e2;
   text-align: center;
   font-family: Pretendard;
   font-size: 1.0625rem; // 17px

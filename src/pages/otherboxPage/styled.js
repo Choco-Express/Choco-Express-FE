@@ -15,9 +15,15 @@ export const Wrapper = styled.div`
   z-index: 1;
   color: white;
   gap: 20px;
+  height: 437px;
   align-items: center;
-  justify-content: center;
-  margin-top: 5rem;
+
+  @media (min-width: 391px) and (max-width: 450px) {
+    margin-top: 8rem;
+  }
+  @media (max-width: 390px) {
+    margin-top: 13rem;
+  }
 
   .Box {
     display: flex;

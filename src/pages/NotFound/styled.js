@@ -10,14 +10,22 @@ export const Container = styled.div`
 `;
 
 export const Wrapper = styled.div`
+  align-items: center;
+  justify-content: center;
   display: flex;
   flex-direction: column;
   position: absolute;
   z-index: 1;
   color: white;
   gap: 60px;
-  align-items: center;
-  justify-content: center;
+  height: 437px;
+
+  @media (min-width: 391px) and (max-width: 450px) {
+    margin-top: 8rem;
+  }
+  @media (max-width: 390px) {
+    margin-top: 13rem;
+  }
 
   .error {
     color: #fef7e2;
