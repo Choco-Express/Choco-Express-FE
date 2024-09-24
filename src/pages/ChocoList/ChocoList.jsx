@@ -16,7 +16,7 @@ const ChocoList = () => {
   const [error, setError] = useState(null);
 
   const ITEMS_PER_PAGE = otherData?.boxType === 4 ? 6 : 9;
-
+  console.log("otherData:", otherData);
   const getChocoList = async (page) => {
     try {
       const response = await instance.get(`/api/choco?page=${page}`);
@@ -24,8 +24,10 @@ const ChocoList = () => {
 
       if (response.data && response.data.message === "SUCCESS") {
         const { chocoList, totalPage } = response.data.result;
+
         console.log("chocolist:", chocoList);
         console.log("totalPage:", totalPage);
+
         setChocoData(chocoList);
         setTotalPages(totalPage);
         setError(null);
