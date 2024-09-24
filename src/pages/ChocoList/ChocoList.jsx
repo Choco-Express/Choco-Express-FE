@@ -24,7 +24,8 @@ const ChocoList = () => {
 
       if (response.data && response.data.message === "SUCCESS") {
         const { chocoList, totalPage } = response.data.result;
-        console.log("chocoList:", chocoList);
+
+        console.log("chocolist:", chocoList);
         console.log("totalPage:", totalPage);
 
         setChocoData(chocoList);
