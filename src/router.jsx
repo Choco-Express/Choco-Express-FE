@@ -54,7 +54,7 @@ const router = createBrowserRouter([
         element: <MyboxSelectPage />,
       },
       { path: "/detailletter/:id", element: <DetailLetter /> },
-      { path: "/chocolist", element: <ChocoList /> },
+      { path: "/chocolist/:boxId", element: <ChocoList /> },
       { path: "/mypage", element: <MyPage /> },
     ],
     errorElement: <NotFound />,
