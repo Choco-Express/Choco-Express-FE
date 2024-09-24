@@ -62,7 +62,7 @@ const DetailLetter = () => {
     try {
       const response = await instance.delete(`/api/choco/${id}`);
 
-      if (response.data) {
+      if (response.status === 204) {
         console.log("삭제가 완료되었습니다.");
 
         navigate(-1);
