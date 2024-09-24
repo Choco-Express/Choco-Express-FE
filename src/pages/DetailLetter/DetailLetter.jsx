@@ -61,8 +61,8 @@ const DetailLetter = () => {
   const handleDeleteClick = async () => {
     try {
       const response = await instance.delete(`/api/choco/${id}`);
-      if (response.data && response.data.message === "SUCCESS") {
-        alert("삭제가 완료되었습니다.");
+      if (response.data) {
+        console.log("삭제가 완료되었습니다.");
         navigate(-1);
       } else {
         console.error("Unexpected response structure:", response.data);
