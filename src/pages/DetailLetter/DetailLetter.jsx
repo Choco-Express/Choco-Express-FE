@@ -53,19 +53,21 @@ const DetailLetter = () => {
   const { chocoType } = state || {}; // * chocoType
 
   // * chocoType과 letter 이미지 매핑
-  const letterDesignId = chocoType ? chocoType : 1; // chocoType을 사용하여 letterDesignId 결정
+  const letterDesignId = chocoType ? chocoType : 1;
 
   const selectedLetter = LETTERS.find((letter) => letter.id === letterDesignId);
 
-  // 아래로는 삭제 코드
+  // 아래로는 삭제 코드 수정
   const handleDeleteClick = async () => {
     try {
       const response = await instance.delete(`/api/choco/${id}`);
+
       if (response.data) {
         console.log("삭제가 완료되었습니다.");
+
         navigate(-1);
       } else {
-        console.error("Unexpected response structure:", response.data);
+        console.error("Unexpected response structure:", response);
         alert("삭제에 실패했습니다.");
       }
     } catch (error) {

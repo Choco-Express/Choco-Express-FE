@@ -8,6 +8,7 @@ export const Container = styled.div`
   width: 100%;
   height: 100%;
   position: relative;
+  background-color: #fef7e2;
 `;
 
 export const Wrapper = styled.div`
@@ -19,7 +20,7 @@ export const Wrapper = styled.div`
   gap: 20px;
   width: 100%;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 
   @media (min-width: 391px) and (max-width: 450px) {
     margin-top: 8rem;
@@ -32,64 +33,61 @@ export const Wrapper = styled.div`
 export const Title = styled.p`
   text-align: center;
   font-family: Pretendard;
-  font-size: 17px;
+  font-size: ${({ fontSize }) => fontSize || "17px"};
   font-style: normal;
   font-weight: 600;
-  /* margin-top: 2rem; */
+  color: ${({ color }) => color || "white"};
 `;
 
-export const BoxContainer = styled.div`
+export const ShareContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #f2d0d0;
-  width: 80%;
+  background-color: #fef7e2;
+  width: 70%;
   height: 300px;
   border-radius: 33px;
   box-shadow: 0px 4px 4px 0px rgba(83, 42, 19, 0.38);
   position: relative;
-  gap: 2rem;
 `;
 
-export const ModifyBtn = styled.div`
-  color: #886152;
-  font-size: 17px;
-  font-weight: 600;
-  line-height: 135%;
-  top: 1rem;
-  right: 1.5rem;
-  position: absolute;
-  cursor: pointer;
-`;
-
-export const BoxImg = styled.div`
-  background: url(${BOX_URL}) #f2d0d0 50% / cover no-repeat;
-  width: 120px;
-  height: 120px;
-`;
-
-export const BtnContainer = styled.div`
-  width: 90%;
-  height: 50px;
+export const ExpressWrapper = styled.div`
+  width: 100%;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
 `;
 
-export const BoxBtn = styled.button`
-  border-radius: 21px;
-  border: 2px solid #532a13;
-  width: 40%;
-  height: 90%;
-  color: #532a13;
+export const Circle = styled.div`
+  width: 50px;
+  height: 50px;
+  position: absolute; /* 절대 위치 */
+  border-radius: 50%;
+  background: #da8b7f;
 
-  text-align: center;
-  font-family: Pretendard;
-  font-size: 17px;
-  font-style: normal;
-  font-weight: 600;
+  &:nth-child(2) {
+    left: calc(50% - 100px); /* 왼쪽 Circle */
+  }
+
+  &:nth-child(3) {
+    right: calc(50% - 100px); /* 오른쪽 Circle */
+  }
+`;
+
+export const DescriptionWrapper = styled.div`
+  margin-top: 4rem;
+`;
+
+export const BirdImg = styled.img`
+  width: 100px;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* 가운데 정렬 */
+  z-index: 3;
 `;
 
 export const ShareBtn = styled.button`

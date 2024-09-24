@@ -67,8 +67,11 @@ export const GlobalStyle = createGlobalStyle`
 
 body {
 	width: 100%;
+  min-height: 100vh;
 	max-width: 540px;
 	overflow-x: hidden;
+  background-color: #fef7e2;
+
 	/* font-family: "AppleSDGothicNeoL00", "AppleSDGothicNeoH00", "AppleSDGothicNeoB00", "AppleSDGothicNeoUL00", "AppleSDGothicNeoT0C", sans-serif; */
 }
 
