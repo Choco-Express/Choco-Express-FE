@@ -27,7 +27,13 @@ export const Wrapper = styled.div`
   gap: 20px;
   height: 437px;
   align-items: center;
-  margin-top: 5rem;
+
+  @media (min-width: 391px) and (max-width: 450px) {
+    margin-top: 8rem;
+  }
+  @media (max-width: 390px) {
+    margin-top: 13rem;
+  }
 `;
 
 export const CenterText = styled.div`

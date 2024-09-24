@@ -18,7 +18,12 @@ export const Wrapper = styled.div`
   gap: 25px;
   align-items: center;
   justify-content: center;
-  margin-top: 3rem;
+  @media (min-width: 391px) and (max-width: 450px) {
+    margin-top: 5rem;
+  }
+  @media (max-width: 390px) {
+    margin-top: 8rem;
+  }
 
   .Box {
     display: flex;
